@@ -9,3 +9,11 @@ c:\users\thomas\documents\visual studio 2015\Projects\PongVB\PongVB\obj\Debug\Po
 c:\users\thomas\documents\visual studio 2015\Projects\PongVB\PongVB\obj\Debug\PongVB.exe
 c:\users\thomas\documents\visual studio 2015\Projects\PongVB\PongVB\obj\Debug\PongVB.xml
 c:\users\thomas\documents\visual studio 2015\Projects\PongVB\PongVB\obj\Debug\PongVB.pdb
+C:\Users\Thomas\Source\Repos\PongVB\PongVB\bin\Debug\PongVB.exe.config
+C:\Users\Thomas\Source\Repos\PongVB\PongVB\obj\Debug\PongVB.exe
+C:\Users\Thomas\Source\Repos\PongVB\PongVB\obj\Debug\PongVB.xml
+C:\Users\Thomas\Source\Repos\PongVB\PongVB\obj\Debug\PongVB.pdb
+C:\Users\Thomas\Source\Repos\PongVB\PongVB\obj\Debug\PongVB.vbprojResolveAssemblyReference.cache
+C:\Users\Thomas\Source\Repos\PongVB\PongVB\obj\Debug\PongVB.frmMain.resources
+C:\Users\Thomas\Source\Repos\PongVB\PongVB\obj\Debug\PongVB.Resources.resources
+C:\Users\Thomas\Source\Repos\PongVB\PongVB\obj\Debug\PongVB.vbproj.GenerateResource.Cache

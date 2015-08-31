@@ -4,8 +4,8 @@ Public Class frmMain
 #Region "globals"
     Dim speed As Single = 10 ' Ball Speed  
     Dim rndInst As New Random() ' Random instance  
-    Dim xVel As Single = Math.Cos(rndInst.Next(5, 10)) * speed  ' why the hell is a "float" called a single?
-    Dim yVel As Single = Math.Sin(rndInst.Next(5, 10)) * speed
+    Dim xVel As Single = Math.Cos(rndInst.Next(5, 10)) * speed  ' why the hell is a "float" called a single? 
+    Dim yVel As Single = Math.Sin(rndInst.Next(5, 10)) * speed  ' Nevermind, I figured it out
     ' The player's scores.
     Dim compScore As Integer = 0
     Dim plrScore As Integer = 0
@@ -44,7 +44,8 @@ Public Class frmMain
     ''' <param name="e">Event arguments</param>
     ''' <remarks>kinda hacky, but meh</remarks>
     Private Sub tmrClock_Tick(sender As Object, e As EventArgs) Handles tmrClock.Tick
-#Region "Player Movement"
+
+    #Region "Player Movement"
         REM moves the player's paddle up 8 points
         If (GetAsyncKeyState(Keys.W)) Then
             Dim newLoc As New Point(paddlePlayer.Location.X, paddlePlayer.Location.Y - 8)
