@@ -127,7 +127,7 @@ namespace PongCS
             // Check for player paddle collision. I need to make the condition dependent on the class properties not the pictureboxes, but that can wait for now
             if (picBall.Bounds.IntersectsWith(paddlePlayer.Bounds))
             {
-                ball.Location = new Point(player.Location.X - paddlePlayer.Size.Width - 1, ball.Location.Y);
+                ball.Location = new Point(player.Location.X + paddlePlayer.Size.Width - 1, ball.Location.Y);
                 ball.Velocity = new Velocity(-ball.Velocity.X, ball.Velocity.Y);
             }
 

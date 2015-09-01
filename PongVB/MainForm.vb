@@ -45,7 +45,7 @@ Public Class frmMain
     ''' <remarks>kinda hacky, but meh</remarks>
     Private Sub tmrClock_Tick(sender As Object, e As EventArgs) Handles tmrClock.Tick
 
-    #Region "Player Movement"
+        '#Region "Player Movement"
         REM moves the player's paddle up 8 points
         If (GetAsyncKeyState(Keys.W)) Then
             Dim newLoc As New Point(paddlePlayer.Location.X, paddlePlayer.Location.Y - 8)
@@ -57,9 +57,9 @@ Public Class frmMain
             Dim newLoc As New Point(paddlePlayer.Location.X, paddlePlayer.Location.Y + 8)
             SetLocation(newLoc)
         End If
-#End Region
+        '#End Region
 
-#Region "Computer Player Movement"
+        '#Region "Computer Player Movement"
         If Not blnMult Then
             If picBall.Location.Y > 5 And picBall.Location.Y < Me.Height - 40 - paddlePlayer.Height Then
                 paddleComputer.Location = New Point(paddleComputer.Location.X, picBall.Location.Y)
@@ -73,20 +73,20 @@ Public Class frmMain
                 paddleComputer.Location = New Point(paddleComputer.Location.X, paddleComputer.Location.Y + 8)
             End If
         End If
-#End Region
+        '#End Region
 
-#Region "Multiplayer"
+        '#Region "Multiplayer"
         If (GetAsyncKeyState(Keys.P)) Then
             blnMult = Not blnMult
         End If
-#End Region
+        '#End Region
 
-#Region "Ball Movement"
+        '#Region "Ball Movement"
         ' Move the game ball.  
         picBall.Location = New Point(picBall.Location.X + xVel, picBall.Location.Y + yVel)
-#End Region
+        '#End Region
 
-#Region "Collision"
+        '#Region "Collision"
         ' Check for top wall.
         If picBall.Location.Y < 0 Then
             picBall.Location = New Point(picBall.Location.X, 0)
@@ -126,6 +126,6 @@ Public Class frmMain
             picBall.Location = New Point(Me.Size.Width / 2, Me.Size.Height / 2)
             lblComputerScore.Text = Convert.ToString(compScore)
         End If
-#End Region
+        '#End Region
     End Sub
 End Class

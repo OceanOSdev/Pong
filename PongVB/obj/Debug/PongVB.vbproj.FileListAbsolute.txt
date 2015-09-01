@@ -17,3 +17,6 @@ C:\Users\Thomas\Source\Repos\PongVB\PongVB\obj\Debug\PongVB.vbprojResolveAssembl
 C:\Users\Thomas\Source\Repos\PongVB\PongVB\obj\Debug\PongVB.frmMain.resources
 C:\Users\Thomas\Source\Repos\PongVB\PongVB\obj\Debug\PongVB.Resources.resources
 C:\Users\Thomas\Source\Repos\PongVB\PongVB\obj\Debug\PongVB.vbproj.GenerateResource.Cache
+C:\Users\Thomas\Source\Repos\PongVB\PongVB\bin\Debug\PongVB.exe
+C:\Users\Thomas\Source\Repos\PongVB\PongVB\bin\Debug\PongVB.pdb
+C:\Users\Thomas\Source\Repos\PongVB\PongVB\bin\Debug\PongVB.xml

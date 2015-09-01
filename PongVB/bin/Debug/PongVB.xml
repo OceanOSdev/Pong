@@ -6,48 +6,43 @@ PongVB
 </name>
 </assembly>
 <members>
-<member name="M:PongVB.frmMain.GetAsyncKeyState(System.Int32)">
- <summary>
+<member name="P:PongVB.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:PongVB.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:PongVB.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:PongVB.frmMain.GetAsyncKeyState(System.Int32)">
+	<summary>
  Gets state of Key Asynchronously (what ever that is lol)
  </summary>
- <param name="vKey">The Key to check the state of</param>
- <returns>Hell if I know</returns>
- <remarks>Pretty dank</remarks>
-</member>
-<member name="M:PongVB.frmMain.SetLocation(System.Drawing.Point)">
- <summary>
+	<param name="vKey">The Key to check the state of</param>
+	<returns>Hell if I know</returns>
+	<remarks>Pretty dank</remarks>
+</member><member name="M:PongVB.frmMain.SetLocation(System.Drawing.Point)">
+	<summary>
  Sets location of picture box
  </summary>
- <param name="location">The new location of the picture box</param>
- <remarks>nothing revolutionary</remarks>
-</member>
-<member name="M:PongVB.frmMain.tmrClock_Tick(System.Object,System.EventArgs)">
- <summary>
+	<param name="location">The new location of the picture box</param>
+	<remarks>nothing revolutionary</remarks>
+</member><member name="M:PongVB.frmMain.tmrClock_Tick(System.Object,System.EventArgs)">
+	<summary>
  Technically just an event handler for the timer, however I'm using it as the game loop.
  </summary>
- <param name="sender">
+	<param name="sender">
  used to distinguish between senders, for example, if I had this 
  handle both tmrClock and another timer, I'd use sender to see
  which event is being handled
  </param>
- <param name="e">Event arguments</param>
- <remarks>kinda hacky, but meh</remarks>
-</member>
-<member name="T:PongVB.My.Resources.Resources">
-<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
-</member>
-<member name="P:PongVB.My.Resources.Resources.ResourceManager">
-<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member>
-<member name="P:PongVB.My.Resources.Resources.Culture">
-<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
+	<param name="e">Event arguments</param>
+	<remarks>kinda hacky, but meh</remarks>
 </member>
 </members>
 </doc>
