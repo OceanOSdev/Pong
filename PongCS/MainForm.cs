@@ -153,7 +153,6 @@ namespace PongCS
             this.paddleComputer.Location = computer.Location;
             this.paddlePlayer.Location = player.Location;
             this.picBall.Location = ball.Location;
-            this.Text = String.Concat("X: ", player.Location.X.ToString(), " Y:", player.Location.Y.ToString());
             #endregion
         }
 
