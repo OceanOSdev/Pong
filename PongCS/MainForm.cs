@@ -53,13 +53,13 @@ namespace PongCS
 
             #region Player Movement
             // Moves player up
-            if (GetAsyncKeyState(Keys.W) < 0)
+            if ((GetAsyncKeyState(Keys.W) < 0) & (player.Location.Y > 0))
             {
                 setLocation(player, new Point(player.Location.X, player.Location.Y - 8));
             }
 
             // Moves player down
-            if (GetAsyncKeyState(Keys.S) < 0)
+            if ((GetAsyncKeyState(Keys.S) < 0) & (player.Location.Y < 300))
             {
                 setLocation(player, new Point(player.Location.X, player.Location.Y + 8));
             }
@@ -77,13 +77,13 @@ namespace PongCS
             else
             {
                 // Move player two up
-                if ((GetAsyncKeyState(Keys.Up) < 0) | (GetAsyncKeyState(Keys.I) < 0))
+                if (((GetAsyncKeyState(Keys.Up) < 0) | (GetAsyncKeyState(Keys.I) < 0)) & (computer.Location.Y > 0))
                 {
                     setLocation(computer, new Point(computer.Location.X, computer.Location.Y - 8));
                 }
                 
                 // move player two down
-                if ((GetAsyncKeyState(Keys.Down) < 0) | (GetAsyncKeyState(Keys.K) < 0))
+                if (((GetAsyncKeyState(Keys.Down) < 0) | (GetAsyncKeyState(Keys.K) < 0)) & (computer.Location.Y < 300))
                 {
                     setLocation(computer, new Point(computer.Location.X, computer.Location.Y + 8));
                 }
@@ -120,14 +120,14 @@ namespace PongCS
             // Check for computer paddle collision. I need to make the condition dependent on the class properties not the pictureboxes, but that can wait for now
             if (picBall.Bounds.IntersectsWith(paddleComputer.Bounds))
             {
-                ball.Location = new Point(computer.Location.X - paddleComputer.Size.Width - 1, ball.Location.Y);
-                ball.Velocity = new Velocity(-ball.Velocity.X, ball.Velocity.Y);
+                ball.Location = new Point(computer.Location.X - paddleComputer.Size.Width - 2, ball.Location.Y);
+                ball.Velocity = new Velocity(-ball.Velocity.X, ball.Velocity.Y);                
             }
 
             // Check for player paddle collision. I need to make the condition dependent on the class properties not the pictureboxes, but that can wait for now
             if (picBall.Bounds.IntersectsWith(paddlePlayer.Bounds))
             {
-                ball.Location = new Point(player.Location.X + paddlePlayer.Size.Width - 1, ball.Location.Y);
+                ball.Location = new Point(player.Location.X + paddlePlayer.Size.Width + 2, ball.Location.Y);
                 ball.Velocity = new Velocity(-ball.Velocity.X, ball.Velocity.Y);
             }
 
@@ -153,6 +153,7 @@ namespace PongCS
             this.paddleComputer.Location = computer.Location;
             this.paddlePlayer.Location = player.Location;
             this.picBall.Location = ball.Location;
+            this.Text = String.Concat("X: ", player.Location.X.ToString(), " Y:", player.Location.Y.ToString());
             #endregion
         }
 
