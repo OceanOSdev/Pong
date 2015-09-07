@@ -7,3 +7,14 @@ C:\Users\Thomas\Source\Repos\PongVB\PongCS\obj\Debug\PongCS.csproj.GenerateResou
 C:\Users\Thomas\Source\Repos\PongVB\PongCS\obj\Debug\PongCS.exe
 C:\Users\Thomas\Source\Repos\PongVB\PongCS\obj\Debug\PongCS.pdb
 C:\Users\Thomas\Source\Repos\PongVB\PongCS\obj\Debug\PongCS.frmMain.resources
+C:\Users\Thomas\Source\Repos\Pong\PongCS\bin\Debug\PongCS.exe.config
+C:\Users\Thomas\Source\Repos\Pong\PongCS\obj\Debug\PongCS.exe
+C:\Users\Thomas\Source\Repos\Pong\PongCS\obj\Debug\PongCS.pdb
+C:\Users\Thomas\Source\Repos\Pong\PongCS\bin\Debug\PongCS.exe
+C:\Users\Thomas\Source\Repos\Pong\PongCS\bin\Debug\PongCS.pdb
+C:\Users\Thomas\Source\Repos\Pong\PongCS\obj\Debug\PongCS.csprojResolveAssemblyReference.cache
+C:\Users\Thomas\Source\Repos\Pong\PongCS\obj\Debug\PongCS.frmMain.resources
+C:\Users\Thomas\Source\Repos\Pong\PongCS\obj\Debug\PongCS.Properties.Resources.resources
+C:\Users\Thomas\Source\Repos\Pong\PongCS\obj\Debug\PongCS.csproj.GenerateResource.Cache
+C:\Users\Thomas\Source\Repos\Pong\PongCS\bin\Debug\NAudio.dll
+C:\Users\Thomas\Source\Repos\Pong\PongCS\bin\Debug\NAudio.xml

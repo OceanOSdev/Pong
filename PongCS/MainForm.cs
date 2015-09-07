@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace PongCS
 {
@@ -18,6 +19,7 @@ namespace PongCS
         Player player = new Player(28, 145);
         Player computer = new Player(771, 145);
         bool multiPlayer = false;       // default postion
+        Thread musicThread;
         #endregion
 
         /// <summary>
@@ -31,6 +33,22 @@ namespace PongCS
         public frmMain()
         {
             InitializeComponent();
+
+            Music mus = new Music();
+
+            // Create the thread object, passing in Music.Play method
+            // via a ThreadStart delegate. This does not start the thread.
+            musicThread = new Thread(new ThreadStart(mus.Play));
+
+            musicThread.Priority = ThreadPriority.AboveNormal;
+
+            // Start the thread
+            musicThread.Start();
+
+            // Spin for a while waiting for the started thread to become alive
+            while (!musicThread.IsAlive) ;
+
+            
         }
 
         private void setLocation(Player pl, Point pt)
@@ -120,13 +138,19 @@ namespace PongCS
             // Check for computer paddle collision. I need to make the condition dependent on the class properties not the pictureboxes, but that can wait for now
             if (picBall.Bounds.IntersectsWith(paddleComputer.Bounds))
             {
+                // alert GlobVars
+                GlobVars.collided = true;
+
                 ball.Location = new Point(computer.Location.X - paddleComputer.Size.Width - 2, ball.Location.Y);
-                ball.Velocity = new Velocity(-ball.Velocity.X, ball.Velocity.Y);                
+                ball.Velocity = new Velocity(-ball.Velocity.X, ball.Velocity.Y);
             }
 
             // Check for player paddle collision. I need to make the condition dependent on the class properties not the pictureboxes, but that can wait for now
             if (picBall.Bounds.IntersectsWith(paddlePlayer.Bounds))
             {
+                // alert GlobVars
+                GlobVars.collided = true;
+
                 ball.Location = new Point(player.Location.X + paddlePlayer.Size.Width + 2, ball.Location.Y);
                 ball.Velocity = new Velocity(-ball.Velocity.X, ball.Velocity.Y);
             }
@@ -156,5 +180,10 @@ namespace PongCS
             #endregion
         }
 
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            musicThread.Interrupt();
+            musicThread.Abort();
+        }
     }
 }
