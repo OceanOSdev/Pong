@@ -16,12 +16,15 @@ namespace PongCS
     {
         #region Members
         MidiOut midiOut = new MidiOut(0);
+        int startNote = MidiMessage.StartNote(40, 127, 1).RawData;
+        int stopNote = MidiMessage.StopNote(40, 0, 1).RawData;
         #endregion
 
         #region Constructor
         public Music()
         {
             midiOut.Volume = 65535;
+            midiOut.Send(MidiMessage.ChangePatch(80, 1).RawData);
         }
         #endregion
 
@@ -39,10 +42,10 @@ namespace PongCS
             {
                 if (GlobVars.collided)
                 {
-                    midiOut.Send(MidiMessage.StartNote(60, 127, 1).RawData);
+                    midiOut.Send(startNote);
                     //System.Windows.Forms.MessageBox.Show("Sent");
-                    Thread.Sleep(500);
-                    midiOut.Send(MidiMessage.StopNote(60, 0, 1).RawData);
+                    Thread.Sleep(250);
+                    midiOut.Send(stopNote);
                     Thread.Sleep(10);
                     GlobVars.collided = false;
                 }

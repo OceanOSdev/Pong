@@ -178,6 +178,8 @@ namespace PongCS
             this.paddlePlayer.Location = player.Location;
             this.picBall.Location = ball.Location;
             #endregion
+
+            this.Refresh();
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)

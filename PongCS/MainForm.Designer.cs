@@ -278,6 +278,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1215, 585);
+            this.Controls.Add(this.picBall);
             this.Controls.Add(this.PictureBox9);
             this.Controls.Add(this.PictureBox10);
             this.Controls.Add(this.PictureBox11);
@@ -297,7 +298,6 @@
             this.Controls.Add(this.lblPlayerScore);
             this.Controls.Add(this.lblComputerScore);
             this.Controls.Add(this.paddleComputer);
-            this.Controls.Add(this.picBall);
             this.Controls.Add(this.paddlePlayer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMain";
