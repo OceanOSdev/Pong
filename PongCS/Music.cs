@@ -18,13 +18,22 @@ namespace PongCS
         MidiOut midiOut = new MidiOut(0);
         int startNote = MidiMessage.StartNote(40, 127, 1).RawData;
         int stopNote = MidiMessage.StopNote(40, 0, 1).RawData;
+        const int MAX_VOLUME = 65535;
         #endregion
 
         #region Constructor
         public Music()
         {
-            midiOut.Volume = 65535;
-            midiOut.Send(MidiMessage.ChangePatch(80, 1).RawData);
+            midiOut.Volume = 0;         // mutes output
+            midiOut.Send(MidiMessage.ChangePatch(80, 1).RawData);   // changes the patch to a square wave
+            midiOut.Send(startNote);    // The only way to get around the latency is to have it constantly play the note w/ a fluctuating volume
+        }
+        #endregion
+
+        #region Destructor
+        ~Music()
+        {
+            //midiOut.Send(stopNote);
         }
         #endregion
 
@@ -42,12 +51,11 @@ namespace PongCS
             {
                 if (GlobVars.collided)
                 {
-                    midiOut.Send(startNote);
-                    //System.Windows.Forms.MessageBox.Show("Sent");
-                    Thread.Sleep(250);
-                    midiOut.Send(stopNote);
+                    midiOut.Volume = MAX_VOLUME;    // Turns up volume
+                    Thread.Sleep(125);              // "Play note" (i.e. take it off of mute) for 125 milliseconds
+                    midiOut.Volume = 0;             // mute it
                     Thread.Sleep(10);
-                    GlobVars.collided = false;
+                    GlobVars.collided = false;      // reset state
                 }
             }
         }

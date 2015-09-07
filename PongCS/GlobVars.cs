@@ -13,5 +13,6 @@ namespace PongCS
     public static class GlobVars
     {
         public static bool collided = false;    // Used to alert for collision
+        public static bool includeAccel = true; // use acceleration
     }
 }

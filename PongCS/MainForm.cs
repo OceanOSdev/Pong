@@ -73,13 +73,20 @@ namespace PongCS
             // Moves player up
             if ((GetAsyncKeyState(Keys.W) < 0) & (player.Location.Y > 0))
             {
-                setLocation(player, new Point(player.Location.X, player.Location.Y - 8));
+                setLocation(player, new Point(player.Location.X, player.Location.Y - player.Speed));
+                if (GlobVars.includeAccel) player.Speed++;  // accelerate the paddle
             }
 
             // Moves player down
-            if ((GetAsyncKeyState(Keys.S) < 0) & (player.Location.Y < 300))
+            else if ((GetAsyncKeyState(Keys.S) < 0) & (player.Location.Y < 300))
             {
-                setLocation(player, new Point(player.Location.X, player.Location.Y + 8));
+                setLocation(player, new Point(player.Location.X, player.Location.Y + player.Speed));
+                if (GlobVars.includeAccel) player.Speed++;  // accelerate the paddle
+            }
+            else
+            {
+                player.slowPlayer();
+                //player.Speed = 8;   // reset paddle speed
             }
             #endregion
 
@@ -94,16 +101,23 @@ namespace PongCS
             }
             else
             {
-                // Move player two up
+                // Move player up
                 if (((GetAsyncKeyState(Keys.Up) < 0) | (GetAsyncKeyState(Keys.I) < 0)) & (computer.Location.Y > 0))
                 {
-                    setLocation(computer, new Point(computer.Location.X, computer.Location.Y - 8));
+                    setLocation(computer, new Point(computer.Location.X, computer.Location.Y - computer.Speed));
+                    computer.Speed++;   // accelerate paddle
                 }
                 
-                // move player two down
-                if (((GetAsyncKeyState(Keys.Down) < 0) | (GetAsyncKeyState(Keys.K) < 0)) & (computer.Location.Y < 300))
+                // move player down
+                else if (((GetAsyncKeyState(Keys.Down) < 0) | (GetAsyncKeyState(Keys.K) < 0)) & (computer.Location.Y < 300))
                 {
-                    setLocation(computer, new Point(computer.Location.X, computer.Location.Y + 8));
+                    setLocation(computer, new Point(computer.Location.X, computer.Location.Y + computer.Speed));
+                    computer.Speed++;   // accelerate paddle
+                }
+
+                else
+                {
+                    computer.Speed = 8;     // reset paddle speed
                 }
             }
             #endregion
@@ -112,6 +126,13 @@ namespace PongCS
             if (GetAsyncKeyState(Keys.P) < 0)
             {
                 multiPlayer = !multiPlayer; // toggle multiplayer by setting itself to its negated value
+            }
+            #endregion
+
+            #region Acceleration Toggle
+            if (GetAsyncKeyState(Keys.O) < 0)
+            {
+                GlobVars.includeAccel = !GlobVars.includeAccel; // toggle acceleration by negating itself
             }
             #endregion
 
@@ -179,7 +200,16 @@ namespace PongCS
             this.picBall.Location = ball.Location;
             #endregion
 
-            this.Refresh();
+            this.Refresh();     // prevents screen tearing, kinda
+            player.Velocity = new Velocity(1, 1);   // "Efficient workaround"(i.e. dirty hack) to enable event handling, w/o actually using events
+            /// <DEBUG CODE>
+            this.Text = string.Concat("Acceleration? ", GlobVars.includeAccel.ToString());
+            ///</DEBUG CODE>
+        }
+
+        private void pseudoFriction(Player pl)
+        {
+            //TODO
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
