@@ -18,13 +18,14 @@ namespace PongCS
             Random rndInst = new Random();
             float x_vel = (float)(((rndInst.Next(1, 2) % 2) * (-1)) * (rndInst.Next(7, 9) / 10.0)) * _speed;  // sets a random x velocity between (-)7 and (-)9
             float y_vel = (float)(((rndInst.Next(1, 2) % 2) * (-1)) * (rndInst.Next(3, 5) / 10.0)) * _speed;  // sets a random y velocity between (-)3 and (-)5
-            _vel = new Velocity(x_vel, y_vel);
+            _vel = new Velocity(x_vel, 7);
         }
 
         #region Members
         private float _speed;
         private Velocity _vel;
         private Point _loc;
+        public const int _HEIGHT = 20;
         #endregion
 
         #region Properties
@@ -64,6 +65,14 @@ namespace PongCS
             set
             {
                 _loc = value;
+            }
+        }
+
+        public int HEIGHT
+        {
+            get
+            {
+                return _HEIGHT;
             }
         }
         #endregion

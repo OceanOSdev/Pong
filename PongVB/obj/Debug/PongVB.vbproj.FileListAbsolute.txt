@@ -27,8 +27,6 @@ C:\Users\Thomas\Source\Repos\Pong\PongVB\obj\Debug\PongVB.pdb
 C:\Users\Thomas\Source\Repos\Pong\PongVB\bin\Debug\PongVB.exe
 C:\Users\Thomas\Source\Repos\Pong\PongVB\bin\Debug\PongVB.pdb
 C:\Users\Thomas\Source\Repos\Pong\PongVB\bin\Debug\PongVB.xml
-C:\Users\Thomas\Source\Repos\Pong\PongVB\bin\Debug\NAudio.dll
-C:\Users\Thomas\Source\Repos\Pong\PongVB\bin\Debug\NAudio.xml
 C:\Users\Thomas\Source\Repos\Pong\PongVB\obj\Debug\PongVB.vbprojResolveAssemblyReference.cache
 C:\Users\Thomas\Source\Repos\Pong\PongVB\obj\Debug\PongVB.frmMain.resources
 C:\Users\Thomas\Source\Repos\Pong\PongVB\obj\Debug\PongVB.Resources.resources

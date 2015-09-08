@@ -20,7 +20,8 @@ namespace PongCS
         #region Members
         private int _score;     // score
         private Point _loc;     // location
-        public const int LENGTH = 128;  // length of player
+        public const int _LENGTH = 128;  // length of player
+        public const int _WIDTH = 16;  // the width of the player
         private int _speed;     // speed
         private Point[] _pts;   // previous location and current location in an array used to calculate velocity
         private Velocity _vel;  // velocity
@@ -86,6 +87,23 @@ namespace PongCS
                 _vel = new Velocity(_vel.X, _pts[0].Y - _pts[1].Y);
             }
         }
+
+        public int LENGTH
+        {
+            get
+            {
+                return _LENGTH;
+            }
+        }
+
+        public int WIDTH
+        {
+            get
+            {
+                return _WIDTH;
+            }
+        }
+            
         #endregion
 
         #region Methods

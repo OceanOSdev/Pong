@@ -162,8 +162,9 @@ namespace PongCS
                 // alert GlobVars
                 GlobVars.collided = true;
 
-                ball.Location = new Point(computer.Location.X - paddleComputer.Size.Width - 2, ball.Location.Y);
-                ball.Velocity = new Velocity(-ball.Velocity.X, ball.Velocity.Y);
+                collide(computer);
+                //ball.Location = new Point(computer.Location.X - paddleComputer.Size.Width - 2, ball.Location.Y);
+                //ball.Velocity = new Velocity(-ball.Velocity.X, ball.Velocity.Y);
             }
 
             // Check for player paddle collision. I need to make the condition dependent on the class properties not the pictureboxes, but that can wait for now
@@ -172,8 +173,9 @@ namespace PongCS
                 // alert GlobVars
                 GlobVars.collided = true;
 
-                ball.Location = new Point(player.Location.X + paddlePlayer.Size.Width + 2, ball.Location.Y);
-                ball.Velocity = new Velocity(-ball.Velocity.X, ball.Velocity.Y);
+                collide(player);
+                //ball.Location = new Point(player.Location.X + paddlePlayer.Size.Width + 2, ball.Location.Y);
+                //ball.Velocity = new Velocity(-ball.Velocity.X, ball.Velocity.Y);
             }
 
             // Check for right wall collision
@@ -210,6 +212,95 @@ namespace PongCS
         private void pseudoFriction(Player pl)
         {
             //TODO
+        }
+
+        private void collide(Player pl)
+        {
+            double dYPosition = (ball.Location.Y + (ball.HEIGHT/(2.0))) - pl.Location.Y;    // position of middle of ball relative to paddle 
+            int newYVelocity = 0;   // initial
+
+            // This is not elegant whatsoever and for that i sincerely apologize,
+            // however there was no other way i could think of at the time 
+            #region Negative Velocity
+            if (Enumerable.Range(1,8).Contains((int)dYPosition))
+            {
+                newYVelocity = -8;
+            }
+            if (Enumerable.Range(9, 16).Contains((int)dYPosition))
+            {
+                newYVelocity = -7;
+            }
+            if (Enumerable.Range(17, 24).Contains((int)dYPosition))
+            {
+                newYVelocity = -6;
+            }
+            if (Enumerable.Range(25, 32).Contains((int)dYPosition))
+            {
+                newYVelocity = -5;
+            }
+            if (Enumerable.Range(33, 40).Contains((int)dYPosition))
+            {
+                newYVelocity = -4;
+            }
+            if (Enumerable.Range(41, 48).Contains((int)dYPosition))
+            {
+                newYVelocity = -3;
+            }
+            if (Enumerable.Range(49, 56).Contains((int)dYPosition))
+            {
+                newYVelocity = -2;
+            }
+            if (Enumerable.Range(57, 64).Contains((int)dYPosition))
+            {
+                newYVelocity = -1;
+            }
+            #endregion
+
+            #region Positive Velocity
+            if (Enumerable.Range(65, 72).Contains((int)dYPosition))
+            {
+                newYVelocity = 1;
+            }
+            if (Enumerable.Range(73, 80).Contains((int)dYPosition))
+            {
+                newYVelocity = 2;
+            }
+            if (Enumerable.Range(81, 88).Contains((int)dYPosition))
+            {
+                newYVelocity = 3;
+            }
+            if (Enumerable.Range(89, 96).Contains((int)dYPosition))
+            {
+                newYVelocity = 4;
+            }
+            if (Enumerable.Range(97, 104).Contains((int)dYPosition))
+            {
+                newYVelocity = 5;
+            }
+            if (Enumerable.Range(105, 112).Contains((int)dYPosition))
+            {
+                newYVelocity = 6;
+            }
+            if (Enumerable.Range(113, 120).Contains((int)dYPosition))
+            {
+                newYVelocity = 7;
+            }
+            if (Enumerable.Range(121, 128).Contains((int)dYPosition))
+            {
+                newYVelocity = 8;
+            }
+            #endregion
+            Point loc = new Point();
+            if (pl == player)
+            {
+                loc = new Point(pl.Location.X + pl.WIDTH + 2, ball.Location.Y);
+            }
+            else
+            {
+                loc = new Point(pl.Location.X - pl.WIDTH - 2, ball.Location.Y);
+            }
+            ball.Location = loc;
+            ball.Velocity = new Velocity(-ball.Velocity.X, newYVelocity);
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
