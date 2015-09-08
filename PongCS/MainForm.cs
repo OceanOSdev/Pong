@@ -34,6 +34,7 @@ namespace PongCS
         {
             InitializeComponent();
 
+            // Instantiates the Music class, which will be used in a separate thread.
             Music mus = new Music();
 
             // Create the thread object, passing in Music.Play method
@@ -205,7 +206,7 @@ namespace PongCS
             this.Refresh();     // prevents screen tearing, kinda
             player.Velocity = new Velocity(1, 1);   // "Efficient workaround"(i.e. dirty hack) to enable event handling, w/o actually using events
             /// <DEBUG CODE>
-            this.Text = string.Concat("Acceleration? ", GlobVars.includeAccel.ToString());
+            //this.Text = string.Concat("Acceleration? ", GlobVars.includeAccel.ToString());
             ///</DEBUG CODE>
         }
 
